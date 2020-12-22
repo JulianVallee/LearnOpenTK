@@ -15,6 +15,7 @@ namespace LearnOpenTK
      *  - UVs are scaled by "_quadSize" so the texture repeats instead of stretching over the whole plane, see "PrepareRenderQuad()"
      *  - Diffuse lighting value got multiplied by 100 to pronounce the diffuse lighting issue
      *  - Added new uniform "isLight" to the fragment shader, used to render the light with a color instead of the used texture
+     *  - Disable ambient and specular lighting to isolate the problem
      *  
      *  
      * Issue description
@@ -96,7 +97,7 @@ namespace LearnOpenTK
             _normalMappingShader.SetMatrix4("projection", _camera.GetProjectionMatrix());
             _normalMappingShader.SetMatrix4("view", _camera.GetViewMatrix());
             _normalMappingShader.SetMatrix4("model", model);
-            _normalMappingShader.SetVector3("viewPos", _camera.Position);
+            //_normalMappingShader.SetVector3("viewPos", _camera.Position);
             _normalMappingShader.SetVector3("lightPos", _lightPos);
             _normalMappingShader.SetInt("isLight", 0);
 
